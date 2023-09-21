@@ -1,1 +1,1 @@
-# Core_Proje
+# Portfolio website for Yıldız Medya
