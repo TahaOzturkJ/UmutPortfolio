@@ -1,0 +1,32 @@
+﻿@using Project.ENTITY.Concrete
+@model List<SocialMedia>
+
+<style>
+    .options{
+        background-color: #cc55ff;
+    }
+
+    .options:nth-child(3){
+        background-color: #0f33ff !important;
+        margin-bottom: 20px !important;
+        text-transform: none !important;
+    }
+
+    .options:nth-last-child(1){
+        margin-bottom: 0;
+        background-color: #ff99;
+    }
+
+
+</style>
+
+<ul class="modal--options">
+    @foreach (var item in Model)
+    {
+        <li class="options">
+            <a href="@item.Url">
+                @item.Name
+            </a>
+        </li>
+    }
+</ul>

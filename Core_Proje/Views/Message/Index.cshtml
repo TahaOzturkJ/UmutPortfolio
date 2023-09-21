@@ -1,0 +1,70 @@
+﻿@using Project.ENTITY.Concrete
+@model List<Message>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<style>
+    .dropdown-item:hover, .dropdown-item:focus {
+        color: lightgrey;
+        text-decoration: none;
+        background-color: #13151b;
+    }
+</style>
+
+<div class="row">
+    <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4> Mesaj Sayfası </h4>
+                <br />
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="sort" data-sort="id">#</th>
+                                <th scope="col" class="sort" data-sort="name">Gönderen</th>
+                                <th scope="col" class="sort" data-sort="date">Tarih</th>
+                                <th scope="col" class="sort" data-sort="checkbox">Okunma Durumu</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.MessageID</td>
+                                    <td>@item.Name</td>
+                                    <td>@(((DateTime)item.Date).ToString("dd MMMM yyyy"))</td>
+                                    <td>
+                                        @if (item.Status == true)
+                                        {
+                                            <div>Okunmadı</div>
+                                        }
+                                        else
+                                        {
+                                            <div>Okundu</div>
+                                        }
+                                    </td>
+                                    <td class="text-right">
+                                        <div class="dropdown">
+                                            <a class="btn btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-ellipsis-v"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                <a class="dropdown-item" href="/Message/ViewMessage/@item.MessageID">Mesajı Gör</a>
+                                                <a class="dropdown-item" href="/Message/DeleteMessage/@item.MessageID">Sil</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

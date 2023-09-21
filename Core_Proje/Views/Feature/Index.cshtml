@@ -1,0 +1,38 @@
+﻿@model Project.ENTITY.Concrete.Feature
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<br />
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4> Öne Çıkan Gönderi Düzenleme Paneli </h4>
+            <form class="forms-sample" method="post">
+                @Html.HiddenFor(x=>x.FeatureID)
+                <br />
+                <div class="form-group">
+                    @Html.Label("Birinci Satır")
+                    @Html.TextBoxFor(x=>x.Header,new {@class= "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("İkinci Satır")
+                    @Html.TextBoxFor(x=>x.Name,new {@class= "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Üçüncü Satır")
+                    @Html.TextBoxFor(x=>x.Title,new {@class= "form-control" })
+                </div>
+                <div class="form-group">
+                    @Html.Label("Buton İçeriği")
+                    @Html.TextBoxFor(x=>x.GetInTouch,new {@class= "form-control" })
+                </div>
+                <br />
+                <button type="submit" class="btn btn-outline-primary mr-2">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>

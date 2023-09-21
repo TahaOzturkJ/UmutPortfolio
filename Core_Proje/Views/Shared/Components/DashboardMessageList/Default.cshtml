@@ -1,0 +1,50 @@
+﻿@using Project.ENTITY.Concrete
+@model List<Message>
+
+<div class="col-md-6 col-xl-4 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <div class="d-flex flex-row justify-content-between">
+                <h4 class="card-title">Okunmamış Mesajlar</h4>
+                <p class="text-muted mb-1 small"><a href="/Message/Index/">Tümünü Görüntüle</a></p>
+            </div>
+            @foreach (var item in Model.Where(x=>x.Status == true))
+            {
+                <div class="preview-list">
+                    <div class="preview-item border-bottom">
+                        <div class="preview-item-content d-flex flex-grow">
+                            <div class="flex-grow">
+                                <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                                    <h6 class="preview-subject">@item.Name</h6>
+                                    <p class="text-muted text-small">@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</p>
+                                </div>
+                                @if (item.SelectedServices != null)
+                                {
+                                    // Remove any non-numeric characters from the phone number
+                                    string cleanPhoneNumber = new string(item.PhoneNumber.Where(char.IsDigit).ToArray());
+
+                                    // Check if the phone number is at least 10 digits long
+                                    if (cleanPhoneNumber.Length >= 10)
+                                    {
+                                        string formattedPhoneNumber = $"+90 {cleanPhoneNumber.Substring(2, 3)} {cleanPhoneNumber.Substring(5, 3)} {cleanPhoneNumber.Substring(8)}";
+
+                                        if (item.SelectedServices.Length > 60)
+                                        {
+                                            <p class="text-muted">@item.SelectedServices.Substring(0, 60)...</p>
+                                            <a href="tel:@item.PhoneNumber">@formattedPhoneNumber</a>
+                                        }
+                                        else
+                                        {
+                                            <p class="text-muted">@item.SelectedServices</p>
+                                            <a href="tel:@item.PhoneNumber">@formattedPhoneNumber</a>
+                                        }
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

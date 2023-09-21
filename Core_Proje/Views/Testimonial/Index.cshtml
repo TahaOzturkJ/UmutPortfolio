@@ -1,0 +1,65 @@
+﻿@using Project.ENTITY.Concrete
+@model List<Testimonial>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<style>
+    .dropdown-item:hover, .dropdown-item:focus {
+        color: lightgrey;
+        text-decoration: none;
+        background-color: #13151b;
+    }
+</style>
+
+<div class="row ">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Referanslar</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Company </th>
+                                <th> Client </th>
+                                <th> Title </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td> @item.TestimonialID </td>
+                                    <td> @item.CompanyName </td>
+                                    <td>
+                                        <img src="@item.ImageUrl" alt="image" />
+                                        <span class="pl-2">@item.ClientName</span>
+                                    </td>
+                                    <td> @item.Title </td>
+                                    <td class="text-right">
+                                        <div class="dropdown">
+                                            <a class="btn btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                <i class="fa fa-ellipsis-v"></i>
+                                            </a>
+                                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                                                <a class="dropdown-item" href="/Testimonial/UpdateTestimonial/@item.TestimonialID">Düzenle</a>
+                                                <a class="dropdown-item" href="/Testimonial/DeleteTestimonial/@item.TestimonialID">Sil</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <br />
+                    <a href="/Testimonial/AddTestimonial/" class="btn btn-outline-info">Yeni Referans Ekle</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

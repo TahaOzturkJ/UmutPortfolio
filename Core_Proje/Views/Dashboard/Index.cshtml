@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Yıldız Media Admin</title>
+</head>
+<body>
+    @await Component.InvokeAsync("DashboardFeatureStatistics")
+    <div class="row">
+        @await Component.InvokeAsync("DashboardProjectList")
+    </div>
+    @await Component.InvokeAsync("DashboardIncomeExpenseStatistics")
+    @await Component.InvokeAsync("DashboardOrderList")
+    <div class="row">
+        @await Component.InvokeAsync("DashboardMessageList")
+        @await Component.InvokeAsync("DashboardSlideList")
+        @await Component.InvokeAsync("DashboardToDoList")
+    </div>
+</body>
+</html>

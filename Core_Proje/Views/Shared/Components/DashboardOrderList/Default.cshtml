@@ -1,0 +1,75 @@
+﻿@using Project.ENTITY.Concrete;
+@model List<Portfolio>
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Proje Durumları</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Proje Adı </th>
+                                <th> Ücret </th>
+                                <th> Proje Durumu </th>
+                                <th> Tamamlanma Oranı </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td> @item.PortfolioID </td>
+                                    <td>
+                                        <span class="pl-2">@item.Name</span>
+                                    </td>
+                                    <td> @item.Price </td>
+                                    <td>
+                                        @if (item.Status == true)
+                                        {
+                                            <div> Tamamlandı </div>
+                                        }
+                                        else
+                                        {
+                                            <div> Devam Ediyor </div>
+                                        }
+                                    </td>
+                                    <td>
+                                        <div>
+                                            @if (item.Condition > 70)
+                                            {
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: @item.Condition%" aria-valuenow="@item.Condition" aria-valuemin="0" aria-valuemax="100">@item.Condition%</div>
+                                                </div>
+                                            }
+                                            else if (item.Condition > 50)
+                                            {
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-primary" role="progressbar" style="width: @item.Condition%" aria-valuenow="@item.Condition" aria-valuemin="0" aria-valuemax="100">@item.Condition%</div>
+                                                </div>
+                                            }
+                                            else if (item.Condition > 30)
+                                            {
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-warning" role="progressbar" style="width: @item.Condition%" aria-valuenow="@item.Condition" aria-valuemin="0" aria-valuemax="100">@item.Condition%</div>
+                                                </div>
+                                            }
+                                            else
+                                            {
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-danger" role="progressbar" style="width: @item.Condition%" aria-valuenow="@item.Condition" aria-valuemin="0" aria-valuemax="100">@item.Condition%</div>
+                                                </div>
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

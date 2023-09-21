@@ -1,0 +1,35 @@
+﻿@using Project.ENTITY.Concrete
+@model List<Portfolio>
+
+<div class="col-md-6 col-xl-4 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Proje Durumları</h4>
+            <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel" id="owl-carousel-basic">
+                @foreach (var item in Model)
+                {
+                    <div class="item">
+                        <img src="@item.ImageUrl" alt="" style="width: 28.125rem; height: 17.813rem">
+                        <div class="d-flex py-4">
+                            <div class="preview-list w-100">
+                                <div class="preview-item p-0">
+                                    <div class="preview-item-content d-flex flex-grow">
+                                        <div class="flex-grow">
+                                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                                                <h6 class="preview-subject">@item.Name</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-muted">@item.Price</p>
+                        <div class="progress progress-md portfolio-progress">
+                            <div class="progress-bar bg-success" role="progressbar" style="width: @item.Condition%" aria-valuenow="@item.Condition" aria-valuemin="0" aria-valuemax="100">@item.Condition</div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

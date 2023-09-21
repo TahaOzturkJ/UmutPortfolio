@@ -1,0 +1,71 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+@await Html.PartialAsync("HeaderPartial")
+
+<body>
+
+    <div class="device-notification">
+        <a class="device-notification--logo" href="#0">
+            <img src="~/tasarım/assets/img/logo.png" alt="YM">
+            <p>Yıldız Medya</p>
+        </a>
+        <p class="device-notification--message">Yıldız Medya Sizlere Eşsiz Bir Deneyim Vaad Ediyor.</p>
+    </div>
+    <div class="perspective effect-rotate-left">
+        <div class="container">
+            <video autoplay loop plays-inline muted controls class="back-video" id="vid">
+                <source src="/IndexVideo/video.mp4" type="video/mp4" />
+            </video>
+            <div class="outer-nav--return"></div>
+            <div id="viewport" class="l-viewport">
+                <div class="l-wrapper">
+                    @await Html.PartialAsync("NavbarPartial")
+                    @await Html.PartialAsync("SidebarPartial")
+                    <ul class="l-main-content main-content">
+                        <li class="l-section section section--is-active">
+                            <div class="intro">
+                                @await Component.InvokeAsync("FeatureList")
+                                @await Component.InvokeAsync("TestimonialList")
+                            </div>
+                        </li>
+                        <li class="l-section section">
+                            @await Component.InvokeAsync("PortfolioList")
+                        </li>
+                        <li class="l-section section">
+                            @await Component.InvokeAsync("AboutList")
+                        </li>
+                        <li class="l-section section">
+                            @await Component.InvokeAsync("ContactDetails")
+                        </li>
+                        <li class="l-section section">
+                            <div class="hire">
+                                <h2>İstediğiniz hizmetler</h2>
+                                @await Html.PartialAsync("SendMessage")
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <ul class="outer-nav">
+            <li class="is-active">Ana Sayfa</li>
+            <li>Çalışmalar</li>
+            <li>Hakkımızda</li>
+            <li>İletişim</li>
+            <li>Bizimle Çalışın</li>
+        </ul>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="~/tasarım/assets/js/vendor/jquery-2.2.4.min.js"><\/script>')</script>
+    <script src="~/tasarım/assets/js/functions-min.js"></script>
+</body>
+
+</html>

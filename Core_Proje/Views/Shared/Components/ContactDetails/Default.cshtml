@@ -1,0 +1,18 @@
+﻿@using Project.ENTITY.Concrete
+@model List<Contact>
+
+<div class="contact">
+    <div class="contact--lockup">
+        <div class="modal">
+            @foreach (var item in Model)
+            {
+                <div class="modal--information">
+                    <p>@item.Title</p>
+                    <a href="mailto:@item.Mail">@item.Mail</a>
+                    <a href="tel:@item.PhoneNumber">@item.PhoneNumber</a>
+                </div>
+                @await Component.InvokeAsync("SocialMediaList")
+            }
+        </div>
+    </div>
+</div>

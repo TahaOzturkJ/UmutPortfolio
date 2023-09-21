@@ -1,0 +1,25 @@
+﻿@model Project.UI.Models.ServiceViewModel
+
+@{
+    ViewData["Title"] = "AddService";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4> Hizmet Ekleme Paneli </h4>
+            <br />
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Hizmet Adı</label>
+                    <input type="text" class="form-control" id="Title" asp-for="@Model.Title">
+                </div>
+                <br />
+                <button type="submit" class="btn btn-outline-primary mr-2">Ekle</button>
+            </form>
+        </div>
+    </div>
+</div>
+

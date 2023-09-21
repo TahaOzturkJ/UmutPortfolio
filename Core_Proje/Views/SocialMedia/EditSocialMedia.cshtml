@@ -1,0 +1,29 @@
+﻿@model Project.UI.Models.SocialMediaViewModel
+
+@{
+    ViewData["Title"] = "EditSocialMedia";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4> Sosyal Medya Düzenleme Paneli</h4>
+            <br />
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <input asp-for="@Model.SocialMediaID" style="display:none;" />
+                <input asp-for="@Model.Status" style="display:none;" />
+                <div class="form-group">
+                    <label>Sosyal Medya Adı</label>
+                    <input type="text" class="form-control" id="Name" asp-for="@Model.Name">
+                </div>
+                <div class="form-group">
+                    <label>Sosyal Medya Link'i</label>
+                    <input type="text" class="form-control" id="Url" asp-for="@Model.Url">
+                </div>
+                <br />
+                <button type="submit" class="btn btn-outline-primary mr-2">Düzenle</button>
+            </form>
+        </div>
+    </div>
+</div>

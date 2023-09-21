@@ -1,0 +1,14 @@
+﻿<form action="/Default/SendMessage/" class="work-request" method="post">
+    @await Component.InvokeAsync("ServiceList")
+    <div class="work-request--information">
+        <div class="information-name">
+            <input id="name" type="text" name="name" spellcheck="false">
+            <label for="name">İsim</label>
+        </div>
+        <div class="information-email">
+            <input id="phoneNumber" type="text" name="phoneNumber" spellcheck="false">
+            <label for="phoneNumber">Telefon Numarası</label>
+        </div>
+    </div>
+    <input type="submit" value="İstek Yolla">
+</form>

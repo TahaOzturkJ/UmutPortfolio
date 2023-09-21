@@ -1,0 +1,104 @@
+﻿@model Project.UI.Models.UserEditViewModel
+@{
+    string fullname = Model.Name + " " + Model.Surname;
+}
+
+<ul class="nav">
+    <li class="nav-item profile">
+        <div class="profile-desc">
+            <div class="profile-pic">
+                <div class="count-indicator">
+                    <img class="img-xs rounded-circle" src="@Model.PictureURL" alt="">
+                    <span class="count bg-success"></span>
+                </div>
+                <div class="profile-name">
+                    <h5 class="mb-0 font-weight-normal">@fullname</h5>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item nav-category">
+        <span class="nav-link">Gezinti Çubuğu</span>
+    </li>
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="/Default/Index/">
+            <span class="menu-icon">
+                <i class="mdi mdi-book-open-page-variant"></i>
+            </span>
+            <span class="menu-title">Siteye Git</span>
+        </a>
+    </li>
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="/Dashboard/Index/">
+            <span class="menu-icon">
+                <i class="mdi mdi-speedometer"></i>
+            </span>
+            <span class="menu-title">Dashboard</span>
+        </a>
+    </li>
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="/Portfolio/Index/">
+            <span class="menu-icon">
+                <i class="mdi mdi-github-circle"></i>
+            </span>
+            <span class="menu-title">Projeler</span>
+        </a>
+    </li>
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="/Message/Index/">
+            <span class="menu-icon">
+                <i class="mdi mdi-message"></i>
+            </span>
+            <span class="menu-title">Mesajlar</span>
+        </a>
+    </li>
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="/Testimonial/Index/">
+            <span class="menu-icon">
+                <i class="mdi mdi-contacts"></i>
+            </span>
+            <span class="menu-title">Referanslar</span>
+        </a>
+    </li>
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="/Feature/Index/">
+            <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+            </span>
+            <span class="menu-title">Öne Çıkan Gönderiler</span>
+        </a>
+    </li>
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="/About/Index/">
+            <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+            </span>
+            <span class="menu-title">Hakkımda</span>
+        </a>
+    </li>
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="/SubContact/Index/">
+            <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+            </span>
+            <span class="menu-title">Alt İletişim</span>
+        </a>
+    </li>
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="/SocialMedia/Index/">
+            <span class="menu-icon">
+                <i class="mdi mdi-youtube"></i>
+            </span>
+            <span class="menu-title">Sosyal Medya</span>
+        </a>
+    </li>
+    <li class="nav-item menu-items">
+        <a class="nav-link" href="/Service/Index/">
+            <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+            </span>
+            <span class="menu-title">Hizmetler</span>
+        </a>
+    </li>
+</ul>
+
